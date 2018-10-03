@@ -1,0 +1,55 @@
+ {
+    "version": 1,
+    "disable_existing_loggers": false,
+    "formatters": {
+        "simple": {
+            "format": "%(message)s - %(asctime)s - %(name)s - %(levelname)s"
+        },
+      "error":{"format":
+      "{'message':'%(message)s','time':'%(asctime)s','logger_name':'%(name)s','log_level':'%(levelname)s','module':'%(module)s','file_name':'%(filename)s','path_name':'%(pathname)s'}"}
+
+
+    },
+
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "level": "DEBUG",
+            "formatter": "simple",
+            "stream": "ext://sys.stdout"
+        },
+
+        "info_file_handler": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "level": "INFO",
+            "formatter": "simple",
+            "filename": "/home/deepak/Documents/Documents_New/Learning/logging_testing/logs/INFO/info.log",
+            "maxBytes": 10485760,
+            "backupCount": 20,
+            "encoding": "utf8"
+        },
+
+        "error_file_handler": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "level": "WARNING",
+            "formatter": "error",
+            "filename": "/home/deepak/Documents/Documents_New/Learning/logging_testing/logs/ERROR/errors.log",
+            "maxBytes": 10485760,
+            "backupCount": 20,
+            "encoding": "utf8"
+        }
+    },
+
+    "loggers": {
+        "logger": {
+            "level": "DEBUG",
+            "handlers": ["console","error_file_handler","info_file_handler"],
+            "propagate": "no"
+        }
+    },
+
+    "root": {
+            "level": "CRITICAL"
+
+        }
+}
