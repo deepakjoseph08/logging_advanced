@@ -1,10 +1,7 @@
 import logging,os,json,logging.config
-#from MS_2 import child_ms2
 
 
-default_path = "../config/log_config.json"
-path = default_path
-print(os.path.abspath(default_path))
+path = "../config/log_config.json"
 print(os.path.exists(path))
 if os.path.exists(path):
     print("path exists")
@@ -15,3 +12,4 @@ if os.path.exists(path):
 else:
     print("default_logger")
     logging.basicConfig(level='INFO')
+# Creating
